@@ -21,4 +21,6 @@ es:
       create_button: "Crear usuario"
       title_edit: "Editando %{user}"
       edit_button: "Editar usuario"
+      admin_role: "Administrador"
+      user_role: "Usuario"
       

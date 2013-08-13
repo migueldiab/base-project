@@ -25,7 +25,7 @@
         .row
           -flash.each do |name, msg|
             .col-12
-              = content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-block"
+              = content_tag :div, msg.html_safe, :id => "flash_#{name}", class: "alert alert-block"
               
       .row
         = yield
