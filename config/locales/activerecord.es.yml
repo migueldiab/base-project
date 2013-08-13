@@ -10,3 +10,4 @@ es:
               blank: "El password no puede estar en blanco"
             password_confirmation:
               confirmation: "Los passwords no coinciden"
+              blank: "La confirmación del password no puede estar en blanco"
