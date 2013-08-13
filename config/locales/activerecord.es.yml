@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "El email no puede estar en blanco"
+            password:
+              blank: "El password no puede estar en blanco"
+            password_confirmation:
+              confirmation: "Los passwords no coinciden"

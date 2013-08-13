@@ -1,0 +1,5 @@
+es:
+  app:
+    name: "Applicación"
+    admin_name: "Administración de la Applicación"
+    author: "Gabriel Chertok"
