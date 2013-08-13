@@ -7,4 +7,12 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = yield
+    .container
+      -unless flash.empty?
+        .row
+          -flash.each do |name, msg|
+            .col-12
+              = content_tag :div, msg.html_safe, :id => "flash_#{name}", class: "alert alert-block"
+          
+      .row
+        = yield

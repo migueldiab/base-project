@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def not_authenticated
-    redirect_to login_url, alert: "Antes hay que loguearse."
+    redirect_to login_url, alert: I18n.t("auth.not_logged_in")
   end
   
 end

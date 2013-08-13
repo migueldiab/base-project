@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
   
   layout "admin"
   
+  def new
+    redirect_to root_url, notice: I18n.t("auth.already_logged_message", logout_link: logout_path) if logged_in?
+  end
+  
   def create
     user = login(params[:email], params[:password], params[:remember_me])
     if user

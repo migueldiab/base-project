@@ -11,6 +11,9 @@ es:
     log_in_error_message: "El mail o el password son incorrectos."
     log_out_error_message: "Ha salido correctamente."
     remember_me: "Recordarme en este equipo"
+    not_allowed: "Su usuario no tiene permitido ingresar a esta parte del sitio, si piensa que esto no es correcto pongase en contacto con el administrador"
+    not_logged_in: "Es necesario loguearse para realizar esta acción"
+    already_logged_message: "Ya se encuentra logueado, si lo desea puede <a href='%{logout_link}'>desloguearse</a> y volverlo a intentar"
     placeholders:
       email: "Email"
       password: "Password"
