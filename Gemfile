@@ -67,3 +67,6 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               
 # Silence assets in development. Read more: https://github.com/evrone/quiet_assets
 gem 'quiet_assets', :group => :development
+
+# Factory Girl for creating objects. Read more: https://github.com/thoughtbot/factory_girl_rails
+gem 'factory_girl_rails'
