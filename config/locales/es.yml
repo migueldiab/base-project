@@ -1,0 +1,55 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+es:
+  app:
+    name: "Applicación"
+    admin_name: "Administración de la Applicación"
+    author: "Gabriel Chertok"
+  auth:
+    logged_us: "Logueado como %{user}."
+    log_out: "Salir"
+    log_in: "Entrar"
+    log_in_button: "Entrar"
+    register: "Registrarse"
+    register_button: "Crear Cuenta"
+    successful_message: "Se ha registrado correctamente."
+    welcome_message: "Bienvenido %{user}"
+    log_in_error_message: "El mail o el password son incorrectos."
+    log_out_error_message: "Ha salido correctamente."
+    remember_me: "Recordarme en este equipo"
+    placeholders:
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Confirmación"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank:
+                "El email no puede estar en blanco"
+            password:
+              blank:
+                "El password no puede estar en blanco"
+            password_confirmation:
+              confirmation: "Los passwords no coinciden"
