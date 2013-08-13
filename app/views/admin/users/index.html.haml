@@ -8,6 +8,7 @@
       %tr
         %th= t("admin.users.id")
         %th= t("admin.users.state")
+        %th= t("admin.users.role")
         %th= t("admin.users.email")
         %th.actions= t("admin.actions.title")
     %tbody
@@ -17,6 +18,11 @@
           %td
             -if user.deleted
               .label.label-danger= t("admin.users.deleted")
+          %td
+            -if user.admin?
+              .label.label-success= t("admin.users.admin_role")
+            -else
+              .label.label-info= t("admin.users.user_role")
           %td= user.email
           %td
             = link_to(t("admin.actions.edit"), edit_admin_user_path(user), class: "btn")
