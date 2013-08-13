@@ -1,0 +1,24 @@
+es:
+  admin:
+    messages:
+      successful_creation: "El %{resource} ha sido creado."
+      successful_edition: "El %{resource} %{name} ha sido modificado."
+      successful_removal: "El %{resource} %{name} ha sido eliminado."
+    actions:
+      title: "Acciones"
+      edit: "Editar"
+      delete: "Eliminar"
+      confirmation: "Está seguro?"
+      back: "Volver al listdo de %{resource}"
+      new: "Nuevo %{resource}"
+    users:
+      title: "Usuarios del sistema"
+      id: "#"
+      state: "Estado"
+      email: "Email"
+      deleted: "Eliminado"
+      title_new: "Nuevo usuario"
+      create_button: "Crear usuario"
+      title_edit: "Editando %{user}"
+      edit_button: "Editar usuario"
+      

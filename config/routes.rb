@@ -9,6 +9,7 @@ Dtapp::Application.routes.draw do
   
   namespace :admin do
     resources :dashboard
+    resources :users
   end
   
   root "home#index"

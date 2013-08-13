@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130812141520) do
+ActiveRecord::Schema.define(version: 20130813141910) do
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130812141520) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.boolean  "deleted",                      default: false
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"

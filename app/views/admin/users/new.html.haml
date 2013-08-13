@@ -1,0 +1,5 @@
+.col-lg-12
+  .side-actions
+    = link_to(t("admin.actions.back", resource: "usuarios"), admin_users_path, class: "btn")
+  %h2= t("admin.users.title_new")
+  = render partial: "form", locals: {user: @user, submit_button_text: t("admin.users.create_button")}

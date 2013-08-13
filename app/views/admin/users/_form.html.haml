@@ -1,0 +1,6 @@
+= simple_form_for([:admin, user]) do |f|
+  = f.input :email, label: false, placeholder: t("auth.placeholders.email"), input_html: { class: "form-control" }
+  = f.input :password, label: false, placeholder: t("auth.placeholders.password"), input_html: { class: "form-control" }
+  = f.input :password_confirmation, label: false, placeholder: t("auth.placeholders.password_confirmation"), input_html: { class: "form-control" }
+  .form-actions
+    = f.button :submit, submit_button_text, class: "btn btn-primary"
