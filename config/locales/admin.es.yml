@@ -23,4 +23,5 @@ es:
       edit_button: "Editar usuario"
       admin_role: "Administrador"
       user_role: "Usuario"
+      empty: "No hay usuarios en el sistema"
       

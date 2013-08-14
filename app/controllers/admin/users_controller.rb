@@ -18,11 +18,11 @@ class Admin::UsersController < AdminController
   end
   
   def edit
-    @user = User.find(params[:id])
+    @user = User.unscoped.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.unscoped.find(params[:id])
     if @user.update_attributes user_params
       redirect_to admin_users_url, notice: I18n.t("admin.messages.successful_edition", resource: "usuario", name: @user.email)
     else
@@ -31,7 +31,7 @@ class Admin::UsersController < AdminController
   end
   
   def destroy
-    @user = User.find(params[:id])
+    @user = User.unscoped.find(params[:id])
     if @user.update_attribute :deleted, true
       redirect_to admin_users_url, notice: I18n.t("admin.messages.successful_removal", resource: "usuario", name: @user.email)
     else
@@ -42,6 +42,6 @@ class Admin::UsersController < AdminController
   private
   
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :deleted)
   end
 end
