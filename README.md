@@ -19,6 +19,10 @@ An opinionated starter repo. If you find a bug please submit a pull-request.
 
 * [will-paginate](https://github.com/mislav/will_paginate).
 
+## Seeds
+
+* [Seedbank](https://github.com/james2m/seedbank), allows to separate seeds in different files per environment and adds dependencies between seeds files.
+
 ## Authentication
 
 * [Sorcery](https://github.com/NoamB/sorcery) for authentication. Based on a [Ryan Bates Railscast](http://railscasts.com/episodes/283-authentication-with-sorcery).
