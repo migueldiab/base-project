@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  default_scope where(deleted: false)
+  default_scope -> {where deleted: false}
   
   authenticates_with_sorcery!
   

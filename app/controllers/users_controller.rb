@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-  layout "admin"
-
-  def new    
+  def new
     @user = User.new
   end
 

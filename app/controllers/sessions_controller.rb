@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  
-  layout "admin"
-  
+
   def new
     redirect_to root_url, notice: I18n.t("auth.already_logged_message", logout_link: logout_path) if logged_in?
   end
