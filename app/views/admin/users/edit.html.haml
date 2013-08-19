@@ -1,5 +1,4 @@
-.col-lg-12
-  .side-actions
-    = link_to(t("admin.actions.back", resource: "usuarios"), admin_users_path, class: "btn")
-  %h2= t("admin.users.title_edit", user: @user.email)
-  = render partial: "form", locals: {user: @user, submit_button_text: t("admin.users.edit_button")}
+.side-actions
+  = link_to(t("admin.actions.back", resource: t("admin.users.resource_plural_name")), admin_users_path, class: "btn")
+%h2= t("admin.users.title_edit", user: @user.email)
+= render partial: "form", locals: {user: @user, submit_button_text: "#{t("admin.actions.edit")} #{t("admin.users.resource_name")}"}

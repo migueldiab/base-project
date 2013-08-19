@@ -1,5 +1,5 @@
 .col-lg-12
-  %h1 Entrar
+  %h1= t("auth.log_in")
   = form_tag sessions_path do
     .form-group
       = text_field_tag :email, params[:email], placeholder: t("auth.placeholders.email"), class: "form-control"

@@ -18,7 +18,7 @@
         - else
           %li= link_to t("auth.register"), signup_path
           %li.divider-vertical
-          %li= link_to t("auth.log_in"), login_path
+        %li= link_to t("auth.log_in"), login_path
             
     .container
       -unless flash.empty?
@@ -28,4 +28,8 @@
               = content_tag :div, msg.html_safe, :id => "flash_#{name}", class: "alert alert-block"
               
       .row
-        = yield
+        .col-3
+          .list-group.main-menu
+            = link_to t("admin.menu.users"), admin_users_path, class: "list-group-item #{"active" if admin_users_path == request.fullpath}"
+        .col-9
+          = yield

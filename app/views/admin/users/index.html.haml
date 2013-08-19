@@ -2,7 +2,7 @@
   
   %h3= t("admin.users.title")
   .side-actions
-    = link_to(t("admin.actions.new", resource: "usuario"), new_admin_user_path, class: "btn")
+    = link_to(t("admin.actions.new", resource: t("admin.users.resource_name")), new_admin_user_path, class: "btn")
   %table.table.admin-table
     %thead
       %tr
