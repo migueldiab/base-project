@@ -3,9 +3,9 @@ require 'spec_helper'
 describe UsersController do
   render_views
   
-  describe "#new" do
+  describe '#new' do
     
-    it "returns http success" do
+    it 'returns http success' do
       get :new
       expect(response).to be_success
     end
@@ -13,12 +13,17 @@ describe UsersController do
   end
   
   describe "#create" do
-    
+
     context 'when sending all required fields' do
-      
+
+      it 'logs in the user' do
+        post :create, user: FactoryGirl.attributes_for(:user)
+        expect(session[:user_id]).to eq(assigns(:user).id)
+      end
+
       it 'redirects the user to the home page' do
-        post :create, user: { email: 'test@test.com', password: '123456789', password_confirmation: '123456789' }
-        expect(response).to redirect_to('/')
+        post :create, user: FactoryGirl.attributes_for(:user)
+        expect(response).to redirect_to(root_url)
       end
       
     end
@@ -26,7 +31,7 @@ describe UsersController do
     context 'when not specifying the email' do
       
       it 'shows an error' do
-        post :create, user: { password: '123456789', password_confirmation: '123456789' }
+        post :create, user: FactoryGirl.attributes_for(:user, email: nil)
         expect(response.body).to include(I18n.t('activerecord.errors.models.user.attributes.email.blank'))
       end
       
@@ -35,7 +40,7 @@ describe UsersController do
     context 'when not specifying the password' do
       
       it 'shows an error' do
-        post :create, user: { email: 'test@test.com', password_confirmation: '123456789' }
+        post :create, user: FactoryGirl.attributes_for(:user, password: nil)
         expect(response.body).to include(I18n.t('activerecord.errors.models.user.attributes.password.blank'))
       end
       
@@ -44,8 +49,8 @@ describe UsersController do
     context 'when not specifying the password confirmation' do
       
       it 'shows an error' do
-        post :create, user: { email: 'test@test.com', password: '123456789' }
-        expect(response).to include(I18n.t('activerecord.errors.models.user.attributes.password_confirmation.blank'))
+        post :create, user: FactoryGirl.attributes_for(:user, password_confirmation: nil)
+        expect(response.body).to include(I18n.t('activerecord.errors.models.user.attributes.password_confirmation.blank'))
       end
       
     end
@@ -53,7 +58,7 @@ describe UsersController do
     context 'when password and confirmation doesn\'t match' do
       
       it 'shows an error' do
-        post :create, user: { email: 'test@test.com', password: '123456789', password_confirmation: '12345678' }
+        post :create, user: FactoryGirl.attributes_for(:user, :password_does_not_match)
         expect(response.body).to include(I18n.t('activerecord.errors.models.user.attributes.password_confirmation.confirmation'))
       end
       
@@ -62,8 +67,8 @@ describe UsersController do
     context 'when specifying the role attribute' do
       
       it 'filters the param' do
-        post :create, user: { email: 'test@test.com', password: '123456789', password_confirmation: '123456789', role: 'admin' }
-        expect(User.last.role).to eq('user')
+        post :create, user: FactoryGirl.attributes_for(:user, role: "admin")
+        expect(assigns(:user).role).to eq('user')
       end
       
     end
@@ -71,8 +76,8 @@ describe UsersController do
     context 'when specifying the deleted attribute' do
       
       it 'filters the param' do
-        post :create, user: { email: 'test@test.com', password: '123456789', password_confirmation: '123456789', deleted: true }
-        expect(User.last.deleted).to eq(false)
+        post :create, user: FactoryGirl.attributes_for(:user, deleted: true)
+        expect(assigns(:user).deleted).to eq(false)
       end
       
     end
