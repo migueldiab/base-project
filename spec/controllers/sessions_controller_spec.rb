@@ -64,4 +64,20 @@ describe SessionsController do
 
   end
 
+  describe '#destroy' do
+
+    let!(:user) { create(:user) }
+
+    it 'logs out the user' do
+      delete :destroy, id: user.id
+      expect(session[:user_id]).to_not eq(user.id)
+    end
+
+    it 'shows a log out message' do
+      delete :destroy, id: user.id
+      expect(flash[:notice]).to eq(I18n.t("auth.log_out_error_message"))
+    end
+
+  end
+
 end
