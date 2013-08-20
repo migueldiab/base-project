@@ -6,8 +6,8 @@ gem 'rails', '4.0.0'
 # Haml for the views. https://github.com/indirect/haml-rails
 gem 'haml-rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql as the database for Active Record. Read more: https://github.com/brianmario/mysql2
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

@@ -25,6 +25,6 @@ ActiveRecord::Schema.define(version: 20130813145031) do
     t.string   "role",                         default: "user"
   end
 
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
 end
