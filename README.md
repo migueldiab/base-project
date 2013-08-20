@@ -31,6 +31,29 @@ An opinionated starter repo. If you find a bug please submit a pull-request.
     * AdminController: Base class for administration controllers. I try to group all the admin specific controller methods here
     * DashboardController: Private controller extending AdminController
 
+## Authorization
+
+Home made authorization
+
+* The user model has a role column; the column can be 'user' or 'admin' (actually it can be anything you want).
+* User instances responding true to the admin? method are admins, yey!
+* The AdminController has two before filter:
+
+ ```ruby
+ class AdminController < ApplicationController
+
+   before_filter :require_login #provided by sorcery
+   before_filter :require_admins
+   layout "admin"
+
+   private
+
+   def require_admins
+     redirect_to root_url, notice: I18n.t("auth.not_allowed") unless current_user.admin?
+   end
+
+ end
+ ```
 
 ## Testing
 
@@ -43,5 +66,5 @@ All translations are in spanish because that's the language I use.
 ## To do
 
 * Follow the sorcery guides to add password reset
-* Create a separate branch for authorization (cancan or custom?)
-* Add controller specs for login / logout / remember me / register
+* Specs for views
+* Create UserInfo model with a one to one relation to user so I can extend the user model without messing with the actual class.
