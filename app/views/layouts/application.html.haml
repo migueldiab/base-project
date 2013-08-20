@@ -8,24 +8,18 @@
     = csrf_meta_tags
   %body
     .navbar.navbar-fixed-top
-      %a.navbar-brand{href: root_url}= t("app.admin_name")
+      %a.navbar-brand{href: root_url}= t("app.name")
       %ul.nav.navbar-nav.pull-right
         - if current_user
           %li
             %a= t("auth.logged_us", user: current_user.email)
-          %li.divider-vertical
           %li= link_to t("auth.log_out"), logout_path
         - else
           %li= link_to t("auth.register"), signup_path
-          %li.divider-vertical
         %li= link_to t("auth.log_in"), login_path
 
     .container
-      -unless flash.empty?
-        .row
-          -flash.each do |name, msg|
-            .col-12
-              = content_tag :div, msg.html_safe, :id => "flash_#{name}", class: "alert alert-block"
-          
+      = yield_flash(flash)
+
       .row
         = yield
