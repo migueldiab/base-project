@@ -6,6 +6,7 @@ es:
           attributes:
             email:
               blank: "El email no puede estar en blanco"
+              taken: "Este email ya está en uso, por favor seleccione otro"
             password:
               blank: "El password no puede estar en blanco"
             password_confirmation:
