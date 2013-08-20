@@ -70,6 +70,11 @@ describe Admin::UsersController do
         expect(response).to redirect_to(admin_users_url)
       end
 
+      it 'shows a success message' do
+        post :create, user: FactoryGirl.attributes_for(:user)
+        expect(flash[:notice]).to eq(I18n.t("admin.messages.successful_creation", resource: I18n.t("admin.users.resource_name")))
+      end
+
     end
 
     context 'when passing invalid data' do
@@ -140,6 +145,14 @@ describe Admin::UsersController do
         expect(response).to redirect_to(admin_users_url)
       end
 
+      it 'shows a success message' do
+        put :update, id: user.id, user: {email: "other@email.com"}
+        expected_message = I18n.t("admin.messages.successful_edition",
+                                  resource: I18n.t("admin.users.resource_name"),
+                                  name: assigns(:user).email)
+        expect(flash[:notice]).to eq(expected_message)
+      end
+
       describe 'and the user is deleted' do
         let(:deleted_user) { create(:user, :deleted) }
 
@@ -202,6 +215,14 @@ describe Admin::UsersController do
       it 'redirects to the user list' do
         delete :destroy, id: user.id
         expect(response).to redirect_to admin_users_url
+      end
+
+      it 'shows a success message' do
+        delete :destroy, id: user.id
+        expected_message = I18n.t("admin.messages.successful_removal",
+                                  resource: I18n.t("admin.users.resource_name"),
+                                  name: assigns(:user).email)
+        expect(flash[:notice]).to eq(expected_message)
       end
 
       describe 'and the user is deleted' do
