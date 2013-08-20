@@ -19,7 +19,7 @@
         %li= link_to t("auth.log_in"), login_path
             
     .container
-      = yield_flash(flash)
+      = render partial: "layouts/flash"
               
       .row
         .col-3
