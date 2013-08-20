@@ -25,6 +25,11 @@ describe UsersController do
         post :create, user: FactoryGirl.attributes_for(:user)
         expect(response).to redirect_to(root_url)
       end
+
+      it 'shows a success message' do
+        post :create, user: FactoryGirl.attributes_for(:user)
+        expect(flash[:notice]).to eq(I18n.t("auth.successful_message"))
+      end
       
     end
     
