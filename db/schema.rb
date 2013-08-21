@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813145031) do
+ActiveRecord::Schema.define(version: 20130821181100) do
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -21,10 +21,14 @@ ActiveRecord::Schema.define(version: 20130813145031) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
-    t.boolean  "deleted",                      default: false
-    t.string   "role",                         default: "user"
+    t.boolean  "deleted",                         default: false
+    t.string   "role",                            default: "user"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
 end

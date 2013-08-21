@@ -3,6 +3,7 @@ es:
     logged_us: "Logueado como %{user}."
     log_out: "Salir"
     log_in: "Entrar"
+    forgot_password: "Olvidó su contraseña?"
     log_in_button: "Entrar"
     register: "Registrarse"
     register_button: "Crear Cuenta"
@@ -14,7 +15,23 @@ es:
     not_allowed: "Su usuario no tiene permitido ingresar a esta parte del sitio, si piensa que esto no es correcto pongase en contacto con el administrador"
     not_logged_in: "Es necesario loguearse para realizar esta acción"
     already_logged_message: "Ya se encuentra logueado, si lo desea puede <a href='%{logout_link}'>desloguearse</a> y volverlo a intentar"
+    password_reset:
+      title: "Reestablecer cotraseña"
+      action: "Enviar un mail para reestablecer mi contraseña"
+      user_not_found: "El usuario %{email} no existe, por favor verifique el email"
+      success: "Te hemos enviado por mail las intstrucciones para reestablecer la contraseña."
+      reset_action: "Reestablecer mi contraseña"
+      reset_success: "La contraseña se ha reestablecido correctamente"
     placeholders:
       email: "Email"
       password: "Password"
       password_confirmation: "Confirmación"
+    emails:
+      goodbye: "Que tengas un excelente día."
+      signature: "El equipo de %{site_name}"
+      password_reset:
+        subject: "Reestablecimiento de contraseña"
+        greeting: "Hola, %{email}"
+        introduction: "Has solicitado el reestablecimiento de la contraseña en %{site_name}."
+        action: "Para reestablecerla debes seguir el siguiente link %{link}."
+        warning: "Si por alguna razón no has pedido esta acción ignora este email."

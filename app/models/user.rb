@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   def user?
     self.role != 'admin'
   end
+
 end
