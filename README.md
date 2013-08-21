@@ -65,6 +65,5 @@ All translations are in spanish because that's the language I use.
 
 ## To do
 
-* Follow the sorcery guides to add password reset
 * Specs for views
 * Create UserInfo model with a one to one relation to user so I can extend the user model without messing with the actual class.
