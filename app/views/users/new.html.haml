@@ -1,12 +1,11 @@
-.span12
-  %h1= t("auth.register")
-  = simple_form_for(@user) do |f|
-    = f.input :email, label: false, placeholder: t("auth.placeholders.email"), input_html: { class: "form-control" }
-    = f.input :password, label: false, placeholder: t("auth.placeholders.password"), input_html: { class: "form-control" }
-    = f.input :password_confirmation, label: false, placeholder: t("auth.placeholders.password_confirmation"), input_html: { class: "form-control" }
-    = f.simple_fields_for :user_info do |u|
-      = u.input :first_name, label: false, placeholder: "Nombre", input_html: { class: "form-control" }
-      = u.input :last_name, label: false, placeholder: "Apellido", input_html: { class: "form-control" }
+%h1= t("auth.register")
+= simple_form_for(@user) do |f|
+  = f.input :email, label: false, placeholder: t("auth.placeholders.email"), input_html: { class: "form-control" }
+  = f.input :password, label: false, placeholder: t("auth.placeholders.password"), input_html: { class: "form-control" }
+  = f.input :password_confirmation, label: false, placeholder: t("auth.placeholders.password_confirmation"), input_html: { class: "form-control" }
+  = f.simple_fields_for :user_info do |u|
+    = u.input :first_name, label: false, placeholder: "Nombre", input_html: { class: "form-control" }
+    = u.input :last_name, label: false, placeholder: "Apellido", input_html: { class: "form-control" }
 
-    .form-actions
-      = f.button :submit, t("auth.register_button"), class: "btn btn-primary"
+  .form-actions
+    = f.button :submit, t("auth.register_button"), class: "btn btn-primary"

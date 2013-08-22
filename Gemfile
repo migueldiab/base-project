@@ -61,9 +61,7 @@ gem 'simple_form', '~> 3.0.0.rc'
 gem 'will_paginate', '~> 3.0.0'
 
 # Bootstrap for Rails. Read more: https://github.com/anjlab/bootstrap-rails
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails',
-                              :branch => '3.0.0'
+gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
                               
 # Silence assets in development. Read more: https://github.com/evrone/quiet_assets
 gem 'quiet_assets', :group => :development

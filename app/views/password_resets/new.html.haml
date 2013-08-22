@@ -1,9 +1,8 @@
-.col-lg-12
-  %h1= t("auth.password_reset.title")
+%h1= t("auth.password_reset.title")
 
-  = form_tag password_resets_path, method: :post do
-    .form-group
-      = text_field_tag :email, "", class: "form-control", placeholder: t("auth.placeholders.email")
+= form_tag password_resets_path, method: :post do
+  .form-group
+    = text_field_tag :email, "", class: "form-control", placeholder: t("auth.placeholders.email")
 
-    .form-group
-      = submit_tag t("auth.password_reset.action"), class: "btn btn-primary"
+  .form-group
+    = submit_tag t("auth.password_reset.action"), class: "btn btn-primary"

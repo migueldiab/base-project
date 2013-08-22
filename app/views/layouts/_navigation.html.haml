@@ -1,0 +1,18 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .navbar-header
+    %a.navbar-brand{href: root_url}= app_name
+  .collapse.navbar-collapse
+    %ul.nav.navbar-nav.navbar-right
+      - if current_user
+        %li
+          %a= t("auth.logged_us", user: current_user.email)
+        - if current_user.admin?
+          - if request.fullpath.include?("/admin")
+            %li= link_to t("auth.public"), root_url
+          - else
+            %li= link_to t("auth.administration"), admin_dashboard_index_path
+        %li= link_to t("auth.log_out"), logout_path
+      - else
+        %li= link_to t("auth.register"), signup_path
+        %li= link_to t("auth.forgot_password"), new_password_reset_path
+        %li= link_to t("auth.log_in"), login_path

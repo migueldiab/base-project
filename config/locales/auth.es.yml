@@ -6,6 +6,8 @@ es:
     forgot_password: "Olvidó su contraseña?"
     log_in_button: "Entrar"
     register: "Registrarse"
+    administration: "Administración"
+    public: "Sitio público"
     register_button: "Crear Cuenta"
     successful_message: "Se ha registrado correctamente."
     welcome_message: "Bienvenido %{user}"
