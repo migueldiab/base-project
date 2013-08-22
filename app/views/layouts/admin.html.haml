@@ -16,7 +16,8 @@
           %li= link_to t("auth.log_out"), logout_path
         - else
           %li= link_to t("auth.register"), signup_path
-        %li= link_to t("auth.log_in"), login_path
+          %li= link_to t("auth.forgot_password"), new_password_reset_path
+          %li= link_to t("auth.log_in"), login_path
             
     .container
       = render partial: "layouts/flash"
