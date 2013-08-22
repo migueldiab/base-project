@@ -9,7 +9,7 @@ Dtapp::Application.routes.draw do
   resources :password_resets
 
   namespace :admin do
-    resources :dashboard
+    resources :dashboard, only: :index
     resources :users
   end
   

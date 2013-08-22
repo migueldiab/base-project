@@ -1,16 +1,15 @@
-.col-lg-12
-  %h1= t("auth.log_in")
-  = form_tag sessions_path do
-    .form-group
-      = text_field_tag :email, params[:email], placeholder: t("auth.placeholders.email"), class: "form-control"
+%h1= t("auth.log_in")
+= form_tag sessions_path do
+  .form-group
+    = text_field_tag :email, params[:email], placeholder: t("auth.placeholders.email"), class: "form-control"
 
-    .form-group
-      = password_field_tag :password, "", placeholder: t("auth.placeholders.password"), class: "form-control"
-    
-    .form-group
-      = label_tag :remember_me do
-        = check_box_tag :remember_me, 1, params[:remember_me]
-        = t("auth.remember_me")
-          
-    .form-group
-      = submit_tag t("auth.log_in_button"), class: "btn btn-primary"
+  .form-group
+    = password_field_tag :password, "", placeholder: t("auth.placeholders.password"), class: "form-control"
+
+  .form-group
+    = label_tag :remember_me do
+      = check_box_tag :remember_me, 1, params[:remember_me]
+      = t("auth.remember_me")
+
+  .form-group
+    = submit_tag t("auth.log_in_button"), class: "btn btn-primary"
