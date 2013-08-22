@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+
+  has_one :user_info
+
+  accepts_nested_attributes_for :user_info
+
   default_scope -> {where deleted: false}
   
   authenticates_with_sorcery!

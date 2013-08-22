@@ -30,7 +30,49 @@ describe UsersController do
         post :create, user: FactoryGirl.attributes_for(:user)
         expect(flash[:notice]).to eq(I18n.t("auth.successful_message"))
       end
+
+      it 'creates the user' do
+        expect{
+          post :create, user: FactoryGirl.attributes_for(:user)
+        }.to change(User, :count).by(1)
+      end
       
+    end
+
+    context 'when specifying the user info attributes' do
+
+      it 'creates the user related user info' do
+        expect {
+          attributes = FactoryGirl.attributes_for(:user)
+          attributes[:user_info_attributes] = FactoryGirl.attributes_for(:user_info)
+          post :create, user: attributes
+        }.to change(UserInfo, :count).by(1)
+
+      end
+
+      context 'and also specifying the user id' do
+
+        it 'ignores it' do
+          user = create(:user)
+          attributes = FactoryGirl.attributes_for(:user)
+          attributes[:user_info_attributes] = FactoryGirl.attributes_for(:user_info).merge(user_id: user.id)
+          post :create, user: attributes
+          expect(assigns(:user).user_info).to_not eq(user.user_info)
+        end
+
+      end
+
+    end
+
+    context 'when not specifying user info attributes' do
+
+      it 'doesn\'t create a related user info' do
+        expect {
+          attributes = FactoryGirl.attributes_for(:user)
+          post :create, user: attributes
+        }.to_not change(UserInfo, :count)
+      end
+
     end
     
     context 'when not specifying the email' do
