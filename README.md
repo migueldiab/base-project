@@ -4,7 +4,7 @@ An opinionated starter repo. If you find a bug please submit a pull-request.
 
 ## Asset pipeline changes
 
-* Removed cofee script from the asset pipeline. I like it but for some reason I feel much comfortable with plain old js in my projects.
+* Removed coffee script from the asset pipeline. I like it but for some reason I feel much comfortable with plain old js in my projects.
 * 2 manifest files one for the public site *application.[js|css]* and another one for the admin section *admin.[js|css]*.
     * The manifests do not require_tree only specific files. I prefferr to manually include what I'm using.
 * [bootstrap-rails](https://github.com/anjlab/bootstrap-rails) using version 3.0.
@@ -26,7 +26,7 @@ An opinionated starter repo. If you find a bug please submit a pull-request.
 ## Authentication
 
 * [Sorcery](https://github.com/NoamB/sorcery) for authentication. Based on a [Ryan Bates Railscast](http://railscasts.com/episodes/283-authentication-with-sorcery).
-* Already set up some usefull controllers:
+* Already set up some useful controllers:
     * HomeController: Public controller
     * AdminController: Base class for administration controllers. I try to group all the admin specific controller methods here
     * DashboardController: Private controller extending AdminController
@@ -35,7 +35,7 @@ An opinionated starter repo. If you find a bug please submit a pull-request.
 
 Home made authorization
 
-* The user model has a role column; the column can be 'user' or 'admin' (actually it can be anything you want).
+* The User model has a role column; the column can be 'user' or 'admin' (actually it can be anything you want).
 * User instances responding true to the admin? method are admins, yey!
 * The AdminController has two before filter:
 
@@ -55,6 +55,11 @@ Home made authorization
  end
  ```
 
+## User extra attributes
+
+For convenience a UserInfo (User <-> UserInfo) model has been created. The intention of this new model is to pull out from the User class all extra attributes that are not necessary for authentication / authorization.
+Use UserInfo every time you need to store data from a user like first name, last name, phone, etc.
+
 ## Testing
 
 * Old good [rspec](https://www.relishapp.com/rspec/rspec-rails) for testing.
@@ -66,4 +71,3 @@ All translations are in spanish because that's the language I use.
 ## To do
 
 * Specs for views
-* Create UserInfo model with a one to one relation to user so I can extend the user model without messing with the actual class.
