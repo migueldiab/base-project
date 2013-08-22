@@ -236,6 +236,22 @@ describe Admin::UsersController do
 
     end
 
+    context 'when trying to delete the current user' do
+      render_views
+
+      it 'doesn\'t delete the user' do
+        expect {
+          delete :destroy, id: current_user.id
+        }.to_not change(User, :count)
+      end
+
+      it 'shows an error' do
+        delete :destroy, id: current_user.id
+        expect(flash[:notice]).to include(I18n.t("admin.users.errors.delete_yourself"))
+      end
+
+    end
+
   end
 
 end

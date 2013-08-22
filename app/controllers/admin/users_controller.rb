@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  
+
   def index
     @users = User.unscoped.paginate(page: params[:page])
   end
@@ -32,10 +32,11 @@ class Admin::UsersController < AdminController
   
   def destroy
     @user = User.unscoped.find(params[:id])
+
+    redirect_to admin_users_url, notice: I18n.t("admin.users.errors.delete_yourself", resource: I18n.t("admin.users.resource_name"), name: @user.email) and return if @user == current_user
+
     if @user.update_attribute :deleted, true
       redirect_to admin_users_url, notice: I18n.t("admin.messages.successful_removal", resource: I18n.t("admin.users.resource_name"), name: @user.email)
-    else
-      render :index
     end
   end
   

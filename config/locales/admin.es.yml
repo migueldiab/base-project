@@ -28,4 +28,6 @@ es:
       admin_role: "Administrador"
       role: "Usuario"
       empty: "No hay usuarios en el sistema"
-      
+      errors:
+        downgrade_role: "No es posible actualizar su propio rol"
+        delete_yourself: "No es posible eliminarse uno mismo"
